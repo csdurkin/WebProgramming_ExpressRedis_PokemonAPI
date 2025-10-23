@@ -1,0 +1,17 @@
+<section>
+
+  {{#if hasError}}
+    <h4>Error fetching move data! Status: {{errorStatus}}</h4>
+  {{else}}
+
+  <h2 style="text-transform: uppercase;">{{move.name}}</h2>
+  
+  <div>
+  <a href="/api/move">Back to Moves List</a>
+  </div>
+  
+  <h3>Move Details</h3>
+  <pre>{{json move}}</pre>
+  {{/if}}
+
+</section>

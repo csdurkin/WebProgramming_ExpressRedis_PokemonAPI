@@ -1,0 +1,31 @@
+<section>
+
+  <h2>Recently Accessed Pokémon</h2>
+
+  {{#if hasError}}
+    <h4>Error fetching history data! Status: {{errorStatus}}</h4>
+  {{/if}}
+
+  {{#if pokemonList.length}}
+
+    <!--Ordered list of last accessed pokemon-->
+    <h3>Last [Up to 25] Pokemon Viewed </h3>
+    <ol>
+      {{#each pokemonList}}
+        <li style="text-transform: uppercase;">{{this.name}}</li>
+      {{/each}}
+    </ol>
+
+    <!--Full json for each pokemon-->
+    <h3>Full JSON for Each of the Latest Pokemon Viewed</h3>
+    {{#each pokemonList}}
+      <article class="pokemon">
+        <h5 style="text-transform: uppercase;">{{this.name}}</h5>
+        <pre>{{{json this}}}</pre>
+      </article>
+    {{/each}}
+
+  {{else}}
+    <div><p>No Pokémon have been accessed recently.</p></div>
+  {{/if}}
+</section>

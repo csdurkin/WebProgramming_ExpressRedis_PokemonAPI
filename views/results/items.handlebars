@@ -1,0 +1,27 @@
+<section>
+  
+  <h2>Item List</h2>
+  
+  {{#if hasError}}
+    <h4>Error fetching items data! Status: {{errorStatus}}</h4>
+  {{else}}
+
+  {{#each items}}
+    
+    <article class="item"> 
+
+      <h3 style="text-transform: uppercase;">{{this.name}}</h3>
+      <p>
+        <a href="/api/item/{{extractIdFromUrl this.url}}">See all details for {{this.name}}.</a>
+      </p>
+
+      <pre>{{{json this}}}</pre>
+
+    </article>
+
+    <br>
+
+  {{/each}}
+  {{/if}}
+
+</section>

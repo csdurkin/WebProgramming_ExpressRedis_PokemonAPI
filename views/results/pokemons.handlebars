@@ -1,0 +1,27 @@
+<section>
+  
+  <h2>Pokémon List</h2>
+  
+  {{#if hasError}}
+    <h4 style="color: red;">Error Pokemon list data! Status: {{errorStatus}}</h4>
+  {{else}}
+
+  {{#each pokemons}}
+    
+    <article class="pokemon"> 
+
+      <h3 style="text-transform: uppercase;">{{this.name}}</h3>
+      <p>
+        <a href="/api/pokemon/{{extractIdFromUrl this.url}}">See all details for {{this.name}}.</a>
+      </p>
+
+      <pre>{{{json this}}}</pre>
+
+    </article>
+
+    <br>
+
+  {{/each}}
+  {{/if}}
+
+</section>

@@ -1,0 +1,27 @@
+<section>
+  
+  <h2>Moves List</h2>
+  
+  {{#if hasError}}
+    <h4 style="color: red;">Error fetching moves data! Status: {{errorStatus}}</h4>
+  {{else}}
+
+  {{#each moves}}
+
+    <article class="move"> 
+
+      <h3 style="text-transform: uppercase;">{{this.name}}</h3>
+      <p>
+        <a href="/api/move/{{extractIdFromUrl this.url}}">See all details for {{this.name}}.</a>
+      </p>
+
+      <pre>{{{json this}}}</pre>
+
+    </article>
+
+    <br>
+
+  {{/each}}
+  {{/if}}
+
+</section>
